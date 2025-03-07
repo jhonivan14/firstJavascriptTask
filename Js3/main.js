@@ -1,19 +1,45 @@
 const elementTxt = document.getElementById("elements");
+const numInput = document.getElementById("numInput");
 const sumTxt = document.getElementById("sum");
+const highestNum = document.getElementById("highestNum");
+const lowestNum = document.getElementById("lowestNum");
 
 let arr = [];
-let sum = 0;
 
-arr.push(23);
-arr.push(55);
-arr.push(10);
-arr.push(90);
-arr.push(18);
+function insertElement() {
+    let num = parseInt(numInput.value);
+    if (isNaN(num)) return; 
 
-for(let i=0; i<arr.length; i++ ) {
-    sum += arr[i];
+    arr.push(num);
+
+    let sum = 0;
+    let smallest = arr[0];
+    let largest = arr[0];
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+        if (arr[i] < smallest) {
+            smallest = arr[i];
+        }
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+
+  
+    elementTxt.innerText = arr.join(", ");
+    sumTxt.innerText = sum;
+    highestNum.innerText = largest;
+    lowestNum.innerText = smallest;
+
+    numInput.value = ""; 
 }
 
-elementTxt.innerHTML = arr.join("<br>");
-sumTxt.innerHTML = sum;
-console.log(arr);
+
+function deleteAll() {
+    arr = [];
+    elementTxt.innerText = "";
+    sumTxt.innerText = "";
+    highestNum.innerText = "";
+    lowestNum.innerText = "";
+}

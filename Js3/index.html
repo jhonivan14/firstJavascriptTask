@@ -7,9 +7,16 @@
 </head>
 <body>
     <h1>Array in JS</h1>
-    <p style="font-weight: bold;">Elements inside the array:</p>
+    <label for="numInput">Insert a number: </label>
+    <input type="number" id="numInput"><br><br>
+    <button onclick="insertElement()">Insert</button>
+    <button onclick="deleteAll()">Delete</button>
+    <p style="font-weight: bold;">Numbers:</p>
     <p id="elements"></p>
     <p>Sum:  <span id="sum"></span></p>
+    <p>Highest: <span id="highestNum"></span></p>
+    <p>lowest: <span id="lowestNum"></span></p>
+
     <script src="main.js"></script>
 </body>
 </html>
